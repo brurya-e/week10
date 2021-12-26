@@ -8,7 +8,6 @@ const Accordion = ({tasks}) => {
    useEffect(() => { 
       if(tasks.length > 0) {
       const initialState = tasks.map(obj => obj.completed);
-      console.log(initialState)
       setStatus(initialState);
     }
   }, [])
@@ -21,7 +20,7 @@ const Accordion = ({tasks}) => {
 }
 
         const renderedItems = tasks.map((item, index) => {
-            const icon = status[index] ? "fas fa-check" : "far fa-window-close"
+            const icon = status[index] ? "fas fa-check" : "fas fa-times"
             const classN = status[index] ? "compleat" : " "
 
             return (
