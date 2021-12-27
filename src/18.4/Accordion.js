@@ -57,7 +57,6 @@ const Accordion = ({ arr }) => {
     return <div>
         {renderedItems}
         <button onClick={deleate} >
-
             deleate
         </button>
         <button onClick={reset}>
