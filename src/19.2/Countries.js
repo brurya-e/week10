@@ -7,7 +7,6 @@ const Countries = () => {
 
     useEffect(() => {  
         const search = async () => {
-            console.log(term.length)
             if (term.length > 0 ) {
                 const { data } = await axios.get('https://restcountries.com/v3.1/name/'+ term);
                 setCountries(data);
