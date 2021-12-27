@@ -2,25 +2,29 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Countries = () => {
-    const [term, setTerm] = useState('all');
+    const [term, setTerm] = useState('');
     const [countries, setCountries] = useState([]);
 
-    useEffect(() => {
-        console.log(term)
-
+    useEffect(() => {  
         const search = async () => {
-            const { data } = await axios.get('https://restcountries.eu/rest/v2/'+ term);
+            console.log(term.length)
+            if (term.length > 0 ) {
+                const { data } = await axios.get('https://restcountries.com/v3.1/name/'+ term);
+                setCountries(data);
+            }
+            else{
+            const { data } = await axios.get('https://restcountries.com/v3.1/all');
             setCountries(data);
-            console.log(data)
+            }
         };
         search();
     }, [term]);
 
     const renderedCountries = countries.map((country) => {
         return (
-          <div key={country.id} className="item">
+          <div key={country.ccn3} className="item">
             <div className="content">
-              <div className="header">{country.title}</div>
+              <div className="header">{country.name.official}</div>
             </div>
           </div>
         );
