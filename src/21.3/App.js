@@ -1,9 +1,9 @@
 import React from "react";
-import Joke from "./Joke";
+import ColorPic from "./ColorPic";
 const App = () => {
   return (
     <div>
-      <Joke />
+      <ColorPic />
     </div>
   );
 };
